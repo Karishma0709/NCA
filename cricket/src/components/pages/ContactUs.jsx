@@ -1,5 +1,8 @@
 import React from 'react';
 import banner from "../../assets/Contact/images-2.jpeg";
+import { FaRegAddressCard } from "react-icons/fa";
+import { BsSendFill } from "react-icons/bs";
+import { LuMessagesSquare } from "react-icons/lu";
 
 const ContactUs = () => {
   return (
@@ -15,23 +18,33 @@ const ContactUs = () => {
         
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {/* Card 1 - Email */}
-          <div className="bg-white p-6 rounded-lg shadow-md">
-            <h3 className="text-xl font-bold mb-4">Email Us</h3>
-            <p className="text-gray-600">You can reach us at:</p>
-            <p className="mt-2 text-blue-500 font-semibold">contact@example.com</p>
+          <div className="bg-white text-center p-6 rounded-lg shadow-md">
+            <div className="flex justify-center items-center text-5xl font-bold mb-4">
+              <FaRegAddressCard />
+            </div>
+            <h3 className="text-2xl font-bold mb-4">Get Quick
+            Registeration</h3>
+            <p className="text-white "><span className='bg-slate-700 p-4 mt-4 rounded-full'> Registeration</span></p>
+          
           </div>
 
           {/* Card 2 - Phone */}
-          <div className="bg-white p-6 rounded-lg shadow-md">
-            <h3 className="text-xl font-bold mb-4">Call Us</h3>
-            <p className="text-gray-600">Feel free to call us at:</p>
-            <p className="mt-2 text-blue-500 font-semibold">+1 (234) 567-890</p>
+          <div className="bg-white text-center p-6 rounded-lg shadow-md">
+            <div className="flex justify-center items-center text-5xl font-bold mb-4">
+              <BsSendFill />
+            </div>
+            <h3 className="text-2xl font-bold mb-4">Address</h3>
+            <p className="text-gray-600">M Chinnaswamy Stadium Premises, MG</p>
+            <p className="mt-2 text-gray-500 font-semibold">Road, Bangalore – 560001</p>
           </div>
 
           {/* Card 3 - Location */}
-          <div className="bg-white p-6 rounded-lg shadow-md">
-            <h3 className="text-xl font-bold mb-4">Our Location</h3>
-            <p className="text-gray-600">1234 Street Name, City, Country</p>
+          <div className="bg-white text-center p-6 rounded-lg shadow-md">
+            <div className="flex justify-center items-center text-5xl font-bold mb-4">
+              <LuMessagesSquare />
+            </div>
+            <h3 className="text-2xl font-bold mb-4">Email</h3>
+            <p className="text-gray-600">support@nationalcricketsacademy.com</p>
           </div>
         </div>
       </div>

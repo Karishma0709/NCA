@@ -32,18 +32,29 @@ const Center = () => {
   return (
     <div className="bg-primary w-full h-auto">
       {/* Banner Image */}
-      <div className="w-full h-[500px]">
-        <img src={banner1} alt="Center" className="w-full h-full object-center" />
+      <div className="w-full h-[300px] sm:h-[400px] lg:h-[500px]">
+        <img src={banner1} alt="Center" className="w-full h-full object-cover" />
       </div>
 
       {/* Cards for each Academy */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 p-8 justify-center items-center mx-20">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 px-4 sm:px-8 lg:px-20 py-8 justify-center items-center">
         {academies.map((academy, index) => (
-          <div key={index} className="border-2 border-green-600 rounded-3xl overflow-hidden shadow-2xl h-[500px] p-5 max-w-[400px] w-full">
-            <img src={academy.img} alt={academy.title} className="h-[60%] w-full object-cover" />
-            <div className="p-4">
-              <h3 className="text-2xl font-bold mb-2">{academy.title}</h3>
-              <p className="text-gray-600 text-xl">{academy.location}</p>
+          <div
+            key={index}
+            className="border-2 border-green-600 rounded-3xl overflow-hidden shadow-2xl h-[400px] sm:h-[450px] lg:h-[500px] p-4 sm:p-5 max-w-full sm:max-w-[350px] lg:max-w-[400px] w-full mx-auto"
+          >
+            <img
+              src={academy.img}
+              alt={academy.title}
+              className="h-[50%] sm:h-[55%] lg:h-[60%] w-full object-cover"
+            />
+            <div className="p-2 sm:p-4">
+              <h3 className="text-xl sm:text-2xl font-bold mb-1 sm:mb-2">
+                {academy.title}
+              </h3>
+              <p className="text-gray-600 text-lg sm:text-xl">
+                {academy.location}
+              </p>
             </div>
           </div>
         ))}
@@ -53,3 +64,4 @@ const Center = () => {
 };
 
 export default Center;
+
