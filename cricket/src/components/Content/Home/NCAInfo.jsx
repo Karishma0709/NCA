@@ -15,7 +15,7 @@ const NCAInfo = () => {
     { label: "Owner", value: "BCCI" },
     { label: "BCCI", value: "VVS Laxman (director)" },
     { label: "Parent organization", value: "BCCI" },
-    { label: "Website", value: <a href="https://nationalcricketsacademy.com/" className="text-blue-500 underline">nationalcricketsacademy.com</a> },
+    { label: "Website", value: <a href="https://nationalcricketsacademy.com/">nationalcricketsacademy.com</a> },
     { label: "Registration Fee", value: "₹3150/-" },
   ];
 
@@ -25,9 +25,9 @@ const NCAInfo = () => {
       <table className="min-w-full border border-gray-200 rounded-lg shadow-md">
         <tbody>
           {ncaDetails.map((detail, index) => (
-            <tr key={index} className="border-b">
-              <td className="py-3 px-4 font-semibold bg-gray-100">{detail.label}</td>
-              <td className="py-3 px-4">{detail.value}</td>
+            <tr key={index} className="border">
+              <td className="py-3 px-4 border font-semibold bg-gray-100">{detail.label}</td>
+              <td className="py-3 border px-4">{detail.value}</td>
             </tr>
           ))}
         </tbody>
