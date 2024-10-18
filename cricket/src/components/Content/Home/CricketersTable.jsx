@@ -28,10 +28,10 @@ const CricketersTable = () => {
         </thead>
         <tbody>
           {cricketers.map((row, index) => (
-            <tr key={index} className="border-b">
-              <td className="py-3 px-4">{row[0]}</td>
-              <td className="py-3 px-4">{row[1]}</td>
-              <td className="py-3 px-4">{row[2]}</td>
+            <tr key={index} className="border">
+              <td className="py-3 px-4 border">{row[0]}</td>
+              <td className="py-3 px-4 border">{row[1]}</td>
+              <td className="py-3 px-4 border">{row[2]}</td>
             </tr>
           ))}
         </tbody>

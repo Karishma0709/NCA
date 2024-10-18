@@ -22,16 +22,16 @@ const OurCoaches = () => {
       <h1 className="text-3xl font-bold mb-4 text-center">Our Coaches</h1>
       <table className="min-w-full border border-gray-200 rounded-lg shadow-md">
         <thead>
-          {/* <tr className="bg-gray-100 border-b">
-            <th className="py-3 px-4 text-left text-gray-600 font-semibold">Coach 1</th>
-            <th className="py-3 px-4 text-left text-gray-600 font-semibold">Coach 2</th>
+          {/* <tr className="bg-gray-100 border-b border-gray-300">
+            <th className="py-3 px-4 text-left text-gray-600 font-semibold border-b border-gray-300">Coach 1</th>
+            <th className="py-3 px-4 text-left text-gray-600 font-semibold border-b border-gray-300">Coach 2</th>
           </tr> */}
         </thead>
         <tbody>
           {coaches.map((coach, index) => (
-            <tr key={index} className="border-b">
-              <td className="py-3 px-4">{coach.name1}</td>
-              <td className="py-3 px-4">{coach.name2}</td>
+            <tr key={index} className="border-b border-gray-300">
+              <td className="py-3 px-4 border border-gray-300">{coach.name1}</td>
+              <td className="py-3 px-4 border border-gray-300">{coach.name2}</td>
             </tr>
           ))}
         </tbody>

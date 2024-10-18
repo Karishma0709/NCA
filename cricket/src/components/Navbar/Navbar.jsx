@@ -16,17 +16,17 @@ const Navbar = () => {
   ];
 
   return (
-    <nav className="">
-      <div className="mx-auto flex justify-evenly items-center shadow-lg px-10 py-5">
+    <nav className="bg-white shadow-md">
+      <div className="mx-auto flex justify-between items-center px-6 py-4 max-w-7xl">
         {/* Logo */}
-        <div className="w-[300px]"> 
+        <div className="w-[150px] md:w-[285px]">
           <a href="/" className="hover:text-black text-orange-500">
             <img src={logo} alt="Logo" className="w-full h-auto" />
           </a>
         </div>
 
-        {/* Nav Links */}
-        <div className="hidden md:flex space-x-6 flex-grow justify-end"> 
+        {/* Nav Links for Desktop */}
+        <div className="hidden md:flex space-x-6 flex-grow justify-end">
           {navItems.map(({ title, link }) => (
             <NavLink
               key={title}
@@ -41,17 +41,23 @@ const Navbar = () => {
 
         {/* Mobile Menu Icon */}
         <div className="md:hidden flex items-center">
-          <button onClick={() => setIsOpen(!isOpen)} className="text-white focus:outline-none">
-            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16m-7 6h7"></path>
-            </svg>
+          <button onClick={() => setIsOpen(!isOpen)} className="text-orange-500 focus:outline-none">
+            {isOpen ? (
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12"></path>
+              </svg>
+            ) : (
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+              </svg>
+            )}
           </button>
         </div>
       </div>
 
       {/* Mobile Menu */}
       {isOpen && (
-        <div className="md:hidden">
+        <div className="md:hidden bg-white shadow-md">
           <div className="flex flex-col mt-4">
             {navItems.map(({ title, link }) => (
               <NavLink
@@ -59,7 +65,7 @@ const Navbar = () => {
                 to={link}
                 className="text-orange-500 hover:text-black px-3 py-2 rounded-md text-sm font-medium"
                 activeClassName="text-yellow-500"
-                onClick={() => setIsOpen(false)}
+                onClick={() => setIsOpen(false)} // Close the menu on link click
               >
                 {title}
               </NavLink>
