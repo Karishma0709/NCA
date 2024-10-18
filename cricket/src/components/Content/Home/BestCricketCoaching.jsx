@@ -37,13 +37,13 @@ const BestCricketCoaching = () => {
   ];
 
   return (
-    <section className="py-10 bg-gray-100">
+    <section className="py-10 bg-gray-100 md:px-10">
       <div className="container mx-auto px-4">
         <h2 className="text-3xl font-bold text-center mb-6">
           Get the Best Cricket Coaching at National Cricket Academy
         </h2>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="">
           {features.map((feature, index) => (
             <React.Fragment key={index}>
               {/* Display numbered title with underline */}
