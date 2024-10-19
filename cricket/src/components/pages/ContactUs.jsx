@@ -4,6 +4,7 @@ import { FaRegAddressCard } from "react-icons/fa";
 import { BsSendFill } from "react-icons/bs";
 import { LuMessagesSquare } from "react-icons/lu";
 import { FaRegArrowAltCircleRight } from 'react-icons/fa';
+import { NavLink } from 'react-router-dom';
 
 const ContactUs = () => {
   return (
@@ -13,7 +14,7 @@ const ContactUs = () => {
         <img src={banner} alt="Gallery Banner" className="w-full h-full object-cover" />
         
         {/* Centered Text */}
-        <div className="absolute inset-0 flex items-center justify-center md:bottom-[200px] md:left-[50px]">
+        <div className="absolute inset-0 flex items-center justify-center md:bottom-[200px]">
           <h2 className="text-5xl font-bold text-white">Contact Us</h2>
         </div>
       </div>
@@ -31,10 +32,10 @@ const ContactUs = () => {
             <h3 className="text-2xl font-bold mb-4">Get Quick
             Registeration</h3>
             <div className="w-full md:w-auto flex justify-center">
-        <button className="bg-blue-900 flex items-center text-white font-bold rounded-full px-10 py-3 hover:bg-blue-950 transition duration-300">
+        <NavLink to='/registration-form' className="bg-blue-900 flex items-center text-white font-bold rounded-full px-10 py-3 hover:bg-blue-950 transition duration-300">
           <FaRegArrowAltCircleRight className="text-xl mr-2" /> 
           <span>Register Now</span>
-        </button>
+        </NavLink>
       </div>
           </div>
 
