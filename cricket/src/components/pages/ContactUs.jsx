@@ -3,6 +3,7 @@ import banner from "../../assets/Contact/images-2.jpeg";
 import { FaRegAddressCard } from "react-icons/fa";
 import { BsSendFill } from "react-icons/bs";
 import { LuMessagesSquare } from "react-icons/lu";
+import { FaRegArrowAltCircleRight } from 'react-icons/fa';
 
 const ContactUs = () => {
   return (
@@ -24,8 +25,12 @@ const ContactUs = () => {
             </div>
             <h3 className="text-2xl font-bold mb-4">Get Quick
             Registeration</h3>
-            <p className="text-white "><span className='bg-slate-700 p-4 mt-4 rounded-full'> Registeration</span></p>
-          
+            <div className="w-full md:w-auto flex justify-center">
+        <button className="bg-blue-900 flex items-center text-white font-bold rounded-full px-10 py-3 hover:bg-blue-950 transition duration-300">
+          <FaRegArrowAltCircleRight className="text-xl mr-2" /> 
+          <span>Register Now</span>
+        </button>
+      </div>
           </div>
 
           {/* Card 2 - Phone */}

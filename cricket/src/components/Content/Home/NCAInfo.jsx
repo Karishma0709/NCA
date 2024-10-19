@@ -1,5 +1,5 @@
 import React from 'react';
-
+import { BsThreeDots } from 'react-icons/bs';
 const NCAInfo = () => {
   // Details of NCA
   const ncaDetails = [
@@ -20,14 +20,18 @@ const NCAInfo = () => {
   ];
 
   return (
-    <div className="bg-primary mx-auto p-6">
+    <div className="bg-primary mx-auto my-auto md:mx-16 p-6">
+      <div className="flex font-extrabold justify-center items-center text-5xl">
+          <BsThreeDots className="text-blue-600 " />{' '}
+          <BsThreeDots className="text-blue-600" />
+        </div>
       <h1 className="text-3xl font-bold mb-4 text-center">National Cricket Academy</h1>
-      <table className="min-w-full border border-gray-200 rounded-lg shadow-md">
+      <table className="min-w-full border border-gray-200 rounded-lg shadow-md mt-10">
         <tbody>
           {ncaDetails.map((detail, index) => (
             <tr key={index} className="border">
-              <td className="py-3 px-4 border font-semibold bg-gray-100">{detail.label}</td>
-              <td className="py-3 border px-4">{detail.value}</td>
+              <td className="py-3 px-4  border border-gray-400 font-semibold bg-gray-100">{detail.label}</td>
+              <td className="py-3 border border-gray-400 px-4">{detail.value}</td>
             </tr>
           ))}
         </tbody>

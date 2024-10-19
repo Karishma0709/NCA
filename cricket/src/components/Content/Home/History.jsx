@@ -3,7 +3,7 @@ import img1 from '../../../assets/Home/sca15.jpg';
 
 const History = () => {
   return (
-    <div className="relative bg-primary h-[450px] lg:h-[500px] w-full flex items-center justify-center md:my-20">
+    <div className="relative bg-primary h-[450px] lg:h-[500px] w-full flex items-center justify-center  md:my-10">
       <img
         src={img1}
         alt="History Image"

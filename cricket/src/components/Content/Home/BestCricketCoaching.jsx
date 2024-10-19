@@ -1,4 +1,5 @@
 import React from 'react';
+import { BsThreeDots } from 'react-icons/bs';
 
 const BestCricketCoaching = () => {
   const features = [
@@ -37,9 +38,13 @@ const BestCricketCoaching = () => {
   ];
 
   return (
-    <section className="py-10 bg-gray-100 md:px-10">
+    <section className="py-10 bg-gray-100 md:px-10 md:mx-12 text-justify">
+       <div className="flex font-extrabold justify-center items-center text-5xl">
+          <BsThreeDots className="text-blue-600 " />{' '}
+          <BsThreeDots className="text-blue-600" />
+        </div>
       <div className="container mx-auto px-4">
-        <h2 className="text-3xl font-bold text-center mb-6">
+        <h2 className="text-3xl font-bold text-center mb-10">
           Get the Best Cricket Coaching at National Cricket Academy
         </h2>
 

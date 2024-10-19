@@ -9,12 +9,12 @@ const Footer = () => {
       <footer className="bg-gray-100 text-black py-6">
         <div className="container mx-auto flex flex-col md:flex-row justify-between md:justify-center items-center md:items-start">
           {/* Left Section: Logo */}
-          <div className="flex items-center mb-4 md:mb-0 md:mr-8">
+          <div className="flex items-center mb-4 md:mb-0 md:mr-16">
             <img src={logo} alt="Logo" className="h-24 w-auto" />
           </div>
 
           {/* Center Section: Links and Contact Information */}
-          <div className="flex flex-col md:mr-8  md:items-start">
+          <div className="flex flex-col md:mr-14  md:items-start">
             <h4 className="font-bold text-2xl mb-2">Get Links</h4>
             {['Home', 'About Us', 'Our Center', 'Registration', 'Contact Us'].map((link) => (
               <div key={link} className="flex items-center mb-1">
