@@ -2,8 +2,8 @@ import React from 'react';
 
 const RoleOfINCA = () => {
   return (
-    <div className="container mx-auto p-6">
-      <h2 className="text-3xl font-bold mb-4">The Role of INCA in Indian Cricket</h2>
+    <div className="container mx-auto p-6 md:mx-16 my-10">
+      <h2 className="text-3xl font-bold mb-4 text-gray-700">The Role of INCA in Indian Cricket</h2>
       <p className="text-lg mb-4">
         The Indian National Cricket Academy (INCA) has played a pivotal role in shaping the future of Indian cricket in several significant ways:
       </p>
