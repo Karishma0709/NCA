@@ -22,14 +22,14 @@ const RegistrationForm = () => {
   };
 
   return (
-    <div className="bg-primary w-full h-auto">
+    <div className="bg-primary w-full h-auto mb-10">
       {/* Registration Image */}
       <div className="w-full h-[500px]">
         <img src={img1} alt="Registration" className="w-full h-full object-center" />
       </div>
 
       {/* Registration Form */}
-      <form className="mx-auto mt-8 p-8 shadow-lg  rounded-lg" onSubmit={handleSubmit}>
+      <form className="mx-auto mt-8 p-8  md:mx-16 " onSubmit={handleSubmit}>
         <h2 className="text-5xl font-bold text-gray-700 mb-4">National Cricket Academy Registration Form</h2>
         <p className="text-red-600 text-2xl font-bold mb-6">Welcome to the National Cricket Academy!</p>
         <p className="text-gray-600 text-lg mb-6">

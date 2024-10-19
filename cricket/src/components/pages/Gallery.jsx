@@ -11,7 +11,6 @@ import img8 from "../../assets/Gallery/image8.webp";
 import img9 from "../../assets/Gallery/image9.jpg";
 import img10 from "../../assets/Gallery/image10.jpg";
 import img11 from "../../assets/Gallery/image11.jpg";
-import img12 from "../../assets/Gallery/image12.jpg";
 
 const images = [
   img1, img2, img3, img4, img5, img6, img7, img8, img9, img10, img11
@@ -19,15 +18,19 @@ const images = [
 
 const Gallery = () => {
   return (
-    <div className="bg-primary w-full h-auto">
+    <div className="bg-primary w-full h-auto mb-10 ">
       {/* Banner Section */}
-      <div className="w-full h-[500px]">
+      <div className="relative w-full h-[500px]">
         <img src={banner} alt="Gallery Banner" className="w-full h-full object-cover" />
+        
+        {/* Centered Text */}
+        <div className="absolute inset-0 flex items-center justify-center md:bottom-[50px] md:left-[200px]">
+          <h2 className="text-5xl font-bold text-white">Gallery</h2>
+        </div>
       </div>
 
       {/* Image Gallery */}
-      <div className="p-8">
-        <h2 className="text-3xl font-bold text-center mb-8">Gallery</h2>
+      <div className="p-8 md:mx-16">
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
           {images.map((image, index) => (
             <div key={index} className="w-full h-[300px] overflow-hidden rounded-lg shadow-md">

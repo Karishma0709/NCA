@@ -9,12 +9,17 @@ const ContactUs = () => {
   return (
     <div className="bg-primary w-full h-auto">
       {/* Banner Section */}
-      <div className="w-full h-[500px]">
-        <img src={banner} alt="Contact Banner" className="w-full h-full object-cover" />
+      <div className="relative w-full h-[500px]">
+        <img src={banner} alt="Gallery Banner" className="w-full h-full object-cover" />
+        
+        {/* Centered Text */}
+        <div className="absolute inset-0 flex items-center justify-center md:bottom-[200px] md:left-[50px]">
+          <h2 className="text-5xl font-bold text-white">Contact Us</h2>
+        </div>
       </div>
 
       {/* Contact Details Section */}
-      <div className="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto md:mx-16 py-12 px-4 sm:px-6 lg:px-8">
         <h2 className="text-3xl font-extrabold text-center mb-12">Contact Us</h2>
         
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -55,7 +60,7 @@ const ContactUs = () => {
       </div>
 
       {/* Map Section */}
-      <div className="w-full h-[400px] mt-12">
+      <div className="w-full h-[400px] my-12">
         <iframe
           className="w-full h-full"
           src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3151.835434509243!2d144.95373531550412!3d-37.816279442021886!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad65d5df1e0a191%3A0x2b0a071c02b34db1!2sVictoria%20State%20Library!5e0!3m2!1sen!2sus!4v1634158265032!5m2!1sen!2sus"

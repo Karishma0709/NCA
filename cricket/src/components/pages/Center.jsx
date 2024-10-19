@@ -32,12 +32,17 @@ const Center = () => {
   return (
     <div className="bg-primary w-full h-auto">
       {/* Banner Image */}
-      <div className="w-full h-[300px] sm:h-[400px] lg:h-[500px]">
-        <img src={banner1} alt="Center" className="w-full h-full object-cover" />
+      <div className="relative w-full h-[500px]">
+        <img src={banner1} alt="Gallery Banner" className="w-full h-full object-cover" />
+        
+        {/* Centered Text */}
+        <div className="absolute inset-0 flex items-center justify-center md:bottom-[50px] md:left-[300px]">
+          <h2 className="text-5xl font-bold text-white">Our Center</h2>
+        </div>
       </div>
 
       {/* Cards for each Academy */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 px-4 sm:px-8 lg:px-20 py-8 justify-center items-center">
+      <div className="grid grid-cols-1 md:mx-5 sm:grid-cols-2 lg:grid-cols-3 gap-6 px-4 sm:px-8 lg:px-20 py-8 justify-center items-center">
         {academies.map((academy, index) => (
           <div
             key={index}
