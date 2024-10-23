@@ -34,7 +34,7 @@ const Footer = () => {
             <h4 className="font-bold text-2xl mb-2">Contact Us</h4>
             <div className="flex items-center mb-1">
               <FaPhone className="mr-2" />
-              <p>Phone: 7596840958</p>
+              <p>Phone: 9733629753</p>
             </div>
             <div className="flex items-center">
               <FaEnvelope className="mr-2 text-sm" />

@@ -4,7 +4,7 @@ import { FaPhone } from 'react-icons/fa';
 const CallButton = () => {
   const handleClick = () => {
     // Make sure to include the '+' for international dialing
-    window.location.href = 'tel:+917596840958'; 
+    window.location.href = 'tel:9733629753'; 
   };
 
   return (
