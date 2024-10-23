@@ -2,58 +2,36 @@ import React, { useEffect, useRef } from 'react';
 import img1 from '../../../assets/About/home-player.webp'; // Adjust the path as needed
 import { BsThreeDots } from 'react-icons/bs';
 import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 const HistoryNCA = () => {
   const textRef = useRef(null);
   const imageRef = useRef(null);
 
+  // Register ScrollTrigger plugin
   useEffect(() => {
-    // Animate text on load from the left
+    gsap.registerPlugin(ScrollTrigger);
+
+    // Animate text and image when they come into view using ScrollTrigger
     gsap.fromTo(
       textRef.current,
       { x: -100, opacity: 0 }, // Start from left
-      { x: 0, opacity: 1, duration: 0.5 }
+      { x: 0, opacity: 1, duration: 0.5, scrollTrigger: {
+        trigger: textRef.current,
+        start: 'top 80%', // Trigger when the top of the textRef is 80% from the top of the viewport
+        once: true // Trigger only once
+      }}
     );
 
-    // Animate image on load from the right
     gsap.fromTo(
       imageRef.current,
       { x: 100, opacity: 0 }, // Start from right
-      { x: 0, opacity: 1, duration: 0.5 }
+      { x: 0, opacity: 1, duration: 0.5, scrollTrigger: {
+        trigger: imageRef.current,
+        start: 'top 80%', // Trigger when the top of the imageRef is 80% from the top of the viewport
+        once: true // Trigger only once
+      }}
     );
-
-    const handleScroll = () => {
-      // Animate text when scrolled into view
-      if (textRef.current) {
-        const rect = textRef.current.getBoundingClientRect();
-        if (rect.top < window.innerHeight && rect.bottom >= 0) {
-          gsap.fromTo(
-            textRef.current,
-            { x: -100, opacity: 0 },
-            { x: 0, opacity: 1, duration: 0.5 }
-          );
-        }
-      }
-
-      // Animate image when scrolled into view
-      if (imageRef.current) {
-        const rect = imageRef.current.getBoundingClientRect();
-        if (rect.top < window.innerHeight && rect.bottom >= 0) {
-          gsap.fromTo(
-            imageRef.current,
-            { x: 100, opacity: 0 },
-            { x: 0, opacity: 1, duration: 0.5 }
-          );
-        }
-      }
-    };
-
-    window.addEventListener('scroll', handleScroll);
-
-    // Cleanup event listener on component unmount
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
   }, []);
 
   return (
@@ -67,7 +45,7 @@ const HistoryNCA = () => {
       <div className="md:w-1/2 p-4 md:p- md:me-10" ref={textRef}>
         <h2 className="text-4xl font-bold text-center">History of NCA</h2>
         <div className="flex font-extrabold justify-center items-center text-5xl mb-5">
-          <BsThreeDots className="" />{' '}
+          <BsThreeDots className="" />
           <BsThreeDots className="" />
           <BsThreeDots className="" />
           <BsThreeDots className="" />

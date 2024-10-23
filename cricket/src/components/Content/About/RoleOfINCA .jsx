@@ -3,24 +3,24 @@ import { gsap } from 'gsap';
 
 const RoleOfINCA = () => {
   const containerRef = useRef(null);
+  const animationTriggered = useRef(false); // To track if the animation has already run
 
   useEffect(() => {
-    // Animate container on load
-    gsap.fromTo(
-      containerRef.current,
-      { opacity: 0, y: 50 }, // Start slightly lower with opacity 0
-      { opacity: 1, y: 0, duration: 0.6 } // Animate to original position and full opacity
-    );
-
     const handleScroll = () => {
-      // Animate container when scrolled into view
+      // If the animation has already been triggered, do nothing
+      if (animationTriggered.current) return;
+
       const rect = containerRef.current.getBoundingClientRect();
       if (rect.top < window.innerHeight && rect.bottom >= 0) {
+        // Animate container when scrolled into view
         gsap.fromTo(
           containerRef.current,
           { opacity: 0, y: 50 }, // Start slightly lower with opacity 0
           { opacity: 1, y: 0, duration: 0.6 }
         );
+
+        // Mark animation as triggered to prevent it from running again
+        animationTriggered.current = true;
       }
     };
 
