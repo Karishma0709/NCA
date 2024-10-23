@@ -8,52 +8,34 @@ const AboutNCA = () => {
   const imageRef = useRef(null);
 
   useEffect(() => {
-    // Animate text on load from the left
-    gsap.fromTo(
-      textRef.current,
-      { x: -100, opacity: 0 }, // Start from left
-      { x: 0, opacity: 1, duration: 0.5 }
-    );
+    // Function to handle animation when an element is in view
+    const animateInView = (element, fromX, fromOpacity) => {
+      const rect = element.getBoundingClientRect();
+      if (rect.top < window.innerHeight && rect.bottom >= 0) {
+        gsap.fromTo(
+          element,
+          { x: fromX, opacity: fromOpacity },
+          { x: 0, opacity: 1, duration: 0.5 }
+        );
+      }
+    };
 
-    // Animate image on load from the right
-    gsap.fromTo(
-      imageRef.current,
-      { x: 100, opacity: 0 }, // Start from right
-      { x: 0, opacity: 1, duration: 0.5 }
-    );
+    // Animate on component mount
+    animateInView(textRef.current, -100, 0);
+    animateInView(imageRef.current, 100, 0);
 
     const handleScroll = () => {
-      // Animate text when scrolled into view
+      // Animate text and image when scrolled into view
       if (textRef.current) {
-        const rect = textRef.current.getBoundingClientRect();
-        if (rect.top < window.innerHeight && rect.bottom >= 0) {
-          gsap.fromTo(
-            textRef.current,
-            { x: -100, opacity: 0 },
-            { x: 0, opacity: 1, duration: 0.5 }
-          );
-        }
+        animateInView(textRef.current, -100, 0);
       }
-
-      // Animate image when scrolled into view
       if (imageRef.current) {
-        const rect = imageRef.current.getBoundingClientRect();
-        if (rect.top < window.innerHeight && rect.bottom >= 0) {
-          gsap.fromTo(
-            imageRef.current,
-            { x: 100, opacity: 0 },
-            { x: 0, opacity: 1, duration: 0.5 }
-          );
-        }
+        animateInView(imageRef.current, 100, 0);
       }
     };
 
-    window.addEventListener('scroll', handleScroll);
 
-    // Cleanup event listener on component unmount
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
+    
   }, []);
 
   return (
@@ -63,10 +45,10 @@ const AboutNCA = () => {
         <div className="md:w-1/2 p-4" ref={textRef}>
           <h2 className="text-4xl font-bold text-center">About NCA</h2>
           <div className="flex font-extrabold justify-center items-center text-5xl mb-5">
-            <BsThreeDots className="" />{' '}
-            <BsThreeDots className="" />
-            <BsThreeDots className="" />
-            <BsThreeDots className="" />
+            <BsThreeDots />{' '}
+            <BsThreeDots />
+            <BsThreeDots />
+            <BsThreeDots />
           </div>
           <p className="text-lg">
             The NCA’s vision is to create world-class cricketers by providing a comprehensive and professional training environment.

@@ -48,7 +48,7 @@ const ContactUs = () => {
             </div>
             <h3 className="text-2xl font-bold mb-4">Get Quick Registration</h3>
             <div className="w-full flex justify-center">
-              <NavLink to='/registration-form' className="bg-blue-900 flex items-center text-white font-bold rounded-full px-10 py-3 hover:bg-blue-950 transition duration-300">
+              <NavLink to='/registration-form' className="bg-green-800 flex items-center text-white font-bold rounded-full px-10 py-3 hover:bg-blue-950 transition duration-300">
                 <FaRegArrowAltCircleRight className="text-xl mr-2" /> 
                 <span>Register Now</span>
               </NavLink>
@@ -80,7 +80,7 @@ const ContactUs = () => {
       <div className="w-full h-[400px] my-12 map-section">
         <iframe
           className="w-full h-full"
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3151.835434509243!2d144.95373531550412!3d-37.816279442021886!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad65d5df1e0a191%3A0x2b0a071c02b34db1!2sVictoria%20State%20Library!5e0!3m2!1sen!2sus!4v1634158265032!5m2!1sen!2sus"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3655.9656957871266!2d80.25985367438675!3d23.60556319432312!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3981718c8c84bfdb%3A0x8187dae5e4f7a828!2sM.chinnaswamy%20stadium%20lite!5e0!3m2!1sen!2sin!4v1729681415526!5m2!1sen!2sin"
           allowFullScreen=""
           loading="lazy"
           title="Google Maps Location"
