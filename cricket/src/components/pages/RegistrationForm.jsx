@@ -61,7 +61,7 @@ const RegistrationForm = () => {
         {/* Submit Button */}
         <button
           type="submit"
-          className="mt-8 w-full py-3 bg-blue-900 text-white font-bold rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-transform duration-300 ease-in-out transform "
+          className="mt-8 w-full py-3 bg-red-800 text-white font-bold rounded-md hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 transition-transform duration-300 ease-in-out transform "
         >
           Submit
         </button>

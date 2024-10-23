@@ -28,7 +28,6 @@ const Footer = () => {
           </div>
 
           {/* Center Section: Links and Contact Information */}
-<<<<<<< HEAD
           <div className="flex flex-col items-center md:items-start">
             <h4 className="font-bold text-3xl mb-4">Quick Links</h4>
             <div className="space-y-2">
@@ -44,21 +43,6 @@ const Footer = () => {
                 </div>
               ))}
             </div>
-=======
-          <div className="flex flex-col md:mr-14 md:items-start">
-            <h4 className="font-bold text-2xl mb-2">Get Links</h4>
-            {footerLinks.map(({ title, link }) => (
-              <div key={title} className="flex items-center mb-1">
-                <FaCircleArrowRight className="mr-2" /> {/* Arrow icon */}
-                <a
-                  href={link}
-                  className="hover:text-black text-orange-500"
-                >
-                  {title}
-                </a>
-              </div>
-            ))}
->>>>>>> e73536e1a6b10f12fa97bac958d01235c415433a
           </div>
 
           {/* Contact Information */}
