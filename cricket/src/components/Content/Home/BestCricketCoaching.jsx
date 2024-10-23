@@ -1,7 +1,30 @@
-import React from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { BsThreeDots } from 'react-icons/bs';
+import { gsap } from 'gsap';
 
 const BestCricketCoaching = () => {
+  const coachingRef = useRef(null);
+  const [hasAnimated, setHasAnimated] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const rect = coachingRef.current.getBoundingClientRect();
+      if (rect.top < window.innerHeight && rect.bottom >= 0 && !hasAnimated) {
+        gsap.fromTo(
+          coachingRef.current,
+          { opacity: 0, y: 20 },
+          { opacity: 1, y: 0, duration: 0.5 }
+        );
+        setHasAnimated(true);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    handleScroll(); // Check on mount
+
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [hasAnimated]);
+
   const features = [
     {
       title: "Experienced Coaching Staff",
@@ -38,24 +61,22 @@ const BestCricketCoaching = () => {
   ];
 
   return (
-    <section className="py-10 bg-gray-100 md:px-10 md:mx-12 text-justify">
-       <div className="flex font-extrabold justify-center items-center text-5xl">
-          <BsThreeDots className="text-blue-600 " />{' '}
-          <BsThreeDots className="text-blue-600" />
-        </div>
+    <section ref={coachingRef} className="py-10 bg-gray-100 md:px-10 md:mx-12 text-justify">
+      <div className="flex font-extrabold justify-center items-center text-5xl">
+        <BsThreeDots className="text-blue-600 " />{' '}
+        <BsThreeDots className="text-blue-600" />
+      </div>
       <div className="container mx-auto px-4">
-        <h2 className="text-3xl font-bold text-center mb-10">
+        <h2 className="text-4xl font-bold text-center mb-10">
           Get the Best Cricket Coaching at National Cricket Academy
         </h2>
-
-        <div className="">
+        <div>
           {features.map((feature, index) => (
             <React.Fragment key={index}>
-              {/* Display numbered title with underline */}
               <h3 className="text-xl font-semibold mb-2 underline">
                 {index + 1}. {feature.title}
               </h3>
-              <p className="text-gray-600 mb-4">{feature.description}</p>
+              <p className="text-gray-600 mb-4 text-lg">{feature.description}</p>
             </React.Fragment>
           ))}
         </div>
