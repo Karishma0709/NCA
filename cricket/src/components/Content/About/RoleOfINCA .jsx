@@ -1,8 +1,39 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
+import { gsap } from 'gsap';
 
 const RoleOfINCA = () => {
+  const containerRef = useRef(null);
+
+  useEffect(() => {
+    // Animate container on load
+    gsap.fromTo(
+      containerRef.current,
+      { opacity: 0, y: 50 }, // Start slightly lower with opacity 0
+      { opacity: 1, y: 0, duration: 0.6 } // Animate to original position and full opacity
+    );
+
+    const handleScroll = () => {
+      // Animate container when scrolled into view
+      const rect = containerRef.current.getBoundingClientRect();
+      if (rect.top < window.innerHeight && rect.bottom >= 0) {
+        gsap.fromTo(
+          containerRef.current,
+          { opacity: 0, y: 50 }, // Start slightly lower with opacity 0
+          { opacity: 1, y: 0, duration: 0.6 }
+        );
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+
+    // Cleanup event listener on component unmount
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
   return (
-    <div className="container mx-auto p-6 md:mx-10 my-12 text-justify">
+    <div ref={containerRef} className="container mx-auto p-6 md:mx-10 my-12 text-justify">
       <h2 className="text-3xl font-bold mb-4 text-gray-700">The Role of INCA in Indian Cricket</h2>
       <p className="text-lg mb-6">
         The Indian National Cricket Academy (INCA) has played a pivotal role in shaping the future of Indian cricket in several significant ways:

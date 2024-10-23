@@ -4,6 +4,15 @@ import logo from '../../assets/logo/NCA-Logo.png'; // Adjust the path as needed
 import { FaCircleArrowRight } from "react-icons/fa6";
 
 const Footer = () => {
+  // Define the navigation items with title and link
+  const navItems = [
+    { title: 'Home', link: '/' },
+    { title: 'About Us', link: '/about' },
+    { title: 'Our Center', link: '/our-center' },
+    { title: 'Registration', link: '/registration' },
+    { title: 'Contact Us', link: '/contact-us' },
+  ];
+
   return (
     <div>
       <footer className="bg-gray-100 text-black py-6">
@@ -14,23 +23,23 @@ const Footer = () => {
           </div>
 
           {/* Center Section: Links and Contact Information */}
-          <div className="flex flex-col md:mr-14  md:items-start">
+          <div className="flex flex-col md:mr-14 md:items-start">
             <h4 className="font-bold text-2xl mb-2">Get Links</h4>
-            {['Home', 'About Us', 'Our Center', 'Registration', 'Contact Us'].map((link) => (
-              <div key={link} className="flex items-center mb-1">
+            {navItems.map(({ title, link }) => (
+              <div key={title} className="flex items-center mb-1">
                 <FaCircleArrowRight className="mr-2" /> {/* Arrow icon */}
                 <a
-                  href={`/${link.toLowerCase().replace(/\s+/g, '-')}`}
+                  href={link} // Use the link directly from navItems
                   className="hover:text-black text-orange-500"
                 >
-                  {link}
+                  {title}
                 </a>
               </div>
             ))}
           </div>
 
           {/* Contact Information */}
-          <div className="flex flex-col  md:items-start">
+          <div className="flex flex-col md:items-start">
             <h4 className="font-bold text-2xl mb-2">Contact Us</h4>
             <div className="flex items-center mb-1">
               <FaPhone className="mr-2" />
