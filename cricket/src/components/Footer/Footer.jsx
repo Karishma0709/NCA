@@ -4,6 +4,15 @@ import logo from '../../assets/logo/NCA-Logo.png'; // Adjust the path as needed
 import { FaCircleArrowRight } from "react-icons/fa6";
 
 const Footer = () => {
+  // Define the footer links
+  const footerLinks = [
+    { title: 'Home', link: '/' },
+    { title: 'About', link: '/about' },
+    { title: 'Our Center', link: '/our-center' },
+    { title: 'Registration Form', link: '/registration-form' },
+    { title: 'Contact Us', link: '/contact-us' },
+  ];
+
   return (
     <div>
       <footer className="bg-gray-100 text-black py-6">
@@ -16,14 +25,14 @@ const Footer = () => {
           {/* Center Section: Links and Contact Information */}
           <div className="flex flex-col md:mr-14 md:items-start">
             <h4 className="font-bold text-2xl mb-2">Get Links</h4>
-            {['Home', 'About Us', 'Our Center', 'Registration', 'Contact Us'].map((link) => (
-              <div key={link} className="flex items-center mb-1">
+            {footerLinks.map(({ title, link }) => (
+              <div key={title} className="flex items-center mb-1">
                 <FaCircleArrowRight className="mr-2" /> {/* Arrow icon */}
                 <a
-                  href={`/${link.toLowerCase().replace(/\s+/g, '-')}`}
+                  href={link}
                   className="hover:text-black text-orange-500"
                 >
-                  {link}
+                  {title}
                 </a>
               </div>
             ))}
