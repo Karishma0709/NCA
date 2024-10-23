@@ -82,7 +82,7 @@ const Navbar = () => {
             <NavLink
               key={title}
               to={link}
-              className="hover:text-black text-orange-500 px-3 py-2 rounded-md text-sm font-medium"
+              className="hover:text-orange-600 text-orange-400 px-3 py-2 rounded-md text-lg font-medium"
               activeClassName="text-yellow-500"
             >
               {title}
