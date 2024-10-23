@@ -1,9 +1,12 @@
-import React, { useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { NavLink } from 'react-router-dom';
+import { gsap } from 'gsap';
 import logo from "../../assets/logo/NCA-Logo.png";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const navRef = useRef(null);
+  const logoRef = useRef(null); // Ref for the logo
 
   // Define the navigation items with title and link
   const navItems = [
@@ -15,18 +18,66 @@ const Navbar = () => {
     { title: 'Contact Us', link: '/contact-us' },
   ];
 
+  // Function to animate navbar items on scroll
+  const animateNavItems = () => {
+    const items = navRef.current.children;
+    gsap.fromTo(items,
+      { opacity: 0, y: -20 },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 0.5,
+        stagger: 0.1, // Stagger the animation
+        ease: 'power1.out',
+      }
+    );
+  };
+
+  // Function to animate logo on scroll
+  const animateLogo = () => {
+    gsap.fromTo(logoRef.current,
+      { opacity: 0, scale: 0.5 },
+      {
+        opacity: 1,
+        scale: 1,
+        duration: 0.5,
+        ease: 'power1.out',
+      }
+    );
+  };
+
+  useEffect(() => {
+    // Call the animation functions on component mount
+    animateNavItems();
+    animateLogo();
+    
+    // Optionally, you can also call them on scroll
+    window.addEventListener('scroll', () => {
+      animateNavItems();
+      animateLogo();
+    });
+
+    // Cleanup event listener on component unmount
+    return () => {
+      window.removeEventListener('scroll', () => {
+        animateNavItems();
+        animateLogo();
+      });
+    };
+  }, []);
+
   return (
-    <nav className="bg-white shadow-md">
+    <nav className="bg-white shadow-md font-bold">
       <div className="mx-auto flex justify-between items-center px-6 py-4 max-w-7xl">
         {/* Logo */}
-        <div className="w-[150px] md:w-[285px]">
+        <div className="w-[150px] md:w-[285px]" ref={logoRef}>
           <a href="/" className="hover:text-black text-orange-500">
             <img src={logo} alt="Logo" className="w-full h-auto" />
           </a>
         </div>
 
         {/* Nav Links for Desktop */}
-        <div className="hidden md:flex space-x-6 flex-grow justify-end">
+        <div ref={navRef} className="hidden md:flex space-x-6 flex-grow justify-end">
           {navItems.map(({ title, link }) => (
             <NavLink
               key={title}

@@ -1,13 +1,55 @@
-import React from 'react';
-import img1 from '../../../assets/Home/sca15.jpg';
+import React, { useEffect, useRef } from "react";
+import img1 from "../../../assets/Home/sca15.jpg";
+import { gsap } from "gsap";
 
 const History = () => {
+  const historyRef = useRef(null);
+
+  useEffect(() => {
+    const element = historyRef.current;
+
+    const handleScroll = () => {
+      const { top, bottom } = element.getBoundingClientRect();
+      const windowHeight = window.innerHeight;
+
+      // Check if the element is in the viewport
+      if (top < windowHeight && bottom > 0) {
+        gsap.to(element, {
+          opacity: 1,
+          y: 0,
+          duration: 1,
+          ease: "power1.out",
+        });
+      } else {
+        gsap.to(element, {
+          opacity: 0,
+          y: 50,
+          duration: 1,
+        });
+      }
+    };
+
+    // Set initial opacity and position
+    gsap.set(element, { opacity: 0, y: 50 });
+
+    // Add scroll event listener
+    window.addEventListener("scroll", handleScroll);
+
+    // Clean up the event listener on component unmount
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   return (
-    <div className="relative bg-primary h-[450px] lg:h-[500px] w-full flex items-center justify-center  md:my-10">
+    <div
+      ref={historyRef}
+      className="relative bg-primary h-[450px] lg:h-[500px] w-full flex items-center justify-center md:my-20"
+    >
       <img
         src={img1}
         alt="History Image"
-        className="h-full w-full md:w-[95%] md:ms-20 object-cover" // Image will cover the full div
+        className="h-full w-full md:w-[95%] md:ms-20 object-cover"
       />
       <div className="absolute w-[90%] md:w-[700px] bg-white h-[400px] md:h-[300px] lg:h-[400px] top-1/2 md:left-96 transform -translate-y-1/2 left-1/2 transform -translate-x-1/2 shadow-2xl md:p-10 p-6 rounded-lg">
         <h1 className="text-4xl font-bold mb-4">History of NCA</h1>
