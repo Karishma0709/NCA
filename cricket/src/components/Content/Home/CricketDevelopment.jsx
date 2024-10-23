@@ -2,10 +2,13 @@ import React, { useEffect, useRef } from 'react';
 import img1 from '../../../assets/Home/cricket-action.png';
 import { FaStar } from 'react-icons/fa';
 import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { BsThreeDots } from 'react-icons/bs';
 
+// Register ScrollTrigger with GSAP
+gsap.registerPlugin(ScrollTrigger);
+
 const CricketDevelopment = () => {
-  // Create refs for the elements to animate
   const col1Ref = useRef(null);
   const imgRef = useRef(null);
   const col3Ref = useRef(null);
@@ -20,6 +23,11 @@ const CricketDevelopment = () => {
         opacity: 1,
         ease: 'bounce.out',
         duration: 1,
+        scrollTrigger: {
+          trigger: imgRef.current,
+          start: 'top 80%', // Start animation when the image is 80% from the top of the viewport
+          toggleActions: 'play none none reverse',
+        },
       }
     );
 
@@ -34,6 +42,11 @@ const CricketDevelopment = () => {
         stagger: 0.3,
         ease: 'power2.out',
         delay: 0.5,
+        scrollTrigger: {
+          trigger: col1Ref.current,
+          start: 'top 80%', // Start animation when the first column is 80% from the top of the viewport
+          toggleActions: 'play none none reverse',
+        },
       }
     );
 
@@ -47,13 +60,18 @@ const CricketDevelopment = () => {
         stagger: 0.3,
         ease: 'power2.out',
         delay: 0.5,
+        scrollTrigger: {
+          trigger: col3Ref.current,
+          start: 'top 80%', // Start animation when the third column is 80% from the top of the viewport
+          toggleActions: 'play none none reverse',
+        },
       }
     );
   }, []);
 
   return (
     <>
-      <h2 className="text-3xl font-bold text-center my-10 ">
+      <h2 className="text-3xl font-bold text-center my-10">
         <div className="flex font-extrabold justify-center items-center text-5xl">
           <BsThreeDots className="text-blue-600 " />{' '}
           <BsThreeDots className="text-blue-600" />
@@ -71,7 +89,7 @@ const CricketDevelopment = () => {
                 </h2>
                 <FaStar className="text-2xl md:ml-2 md:mt-0 mt-2" />
               </div>
-              <p className="text-center md:text-right">
+              <p className="text-center md:text-right lg:text-lg text-sm">
                 Begin playing cricket at a young age to develop fundamental
                 skills.
               </p>
@@ -83,7 +101,7 @@ const CricketDevelopment = () => {
                 </h2>
                 <FaStar className="text-2xl md:ml-2 md:mt-0 mt-2" />
               </div>
-              <p className="text-center md:text-right">
+              <p className="text-center md:text-right lg:text-lg text-sm">
                 Take part in age-group tournaments conducted by the BCCI such as
                 Under 14, Under-16, Under-19, and Under-23 tournaments.
                 Performances in these tournaments are closely monitored by
@@ -113,7 +131,7 @@ const CricketDevelopment = () => {
                 </h2>
                 <FaStar className="text-2xl md:ml-2 md:mt-0 mt-2" />
               </div>
-              <p className="text-center md:text-right">
+              <p className="text-center md:text-right lg:text-lg text-sm">
                 Attend talent hunt camps organized by the BCCI in different
                 regions. These camps are designed to identify and nurture young
                 talent.
@@ -126,7 +144,7 @@ const CricketDevelopment = () => {
                 </h2>
                 <FaStar className="text-2xl md:ml-2 md:mt-0 mt-2" />
               </div>
-              <p className="text-center md:text-right">
+              <p className="text-center md:text-right lg:text-lg text-sm">
                 Perform well in other domestic tournaments like the Vijay Hazare
                 Trophy (50-over competition) and Syed Mushtaq Ali Trophy (T20
                 competition).
@@ -139,7 +157,7 @@ const CricketDevelopment = () => {
                 </h2>
                 <FaStar className="text-2xl md:ml-2 md:mt-0 mt-2" />
               </div>
-              <p className="text-center md:text-right">
+              <p className="text-center md:text-right lg:text-lg text-sm">
                 In some cases, players are invited to NCA trials based on their
                 performance in domestic cricket or recommendations from coaches
                 and selectors.

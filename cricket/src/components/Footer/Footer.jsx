@@ -14,7 +14,7 @@ const Footer = () => {
           </div>
 
           {/* Center Section: Links and Contact Information */}
-          <div className="flex flex-col md:mr-14  md:items-start">
+          <div className="flex flex-col md:mr-14 md:items-start">
             <h4 className="font-bold text-2xl mb-2">Get Links</h4>
             {['Home', 'About Us', 'Our Center', 'Registration', 'Contact Us'].map((link) => (
               <div key={link} className="flex items-center mb-1">
@@ -30,7 +30,7 @@ const Footer = () => {
           </div>
 
           {/* Contact Information */}
-          <div className="flex flex-col  md:items-start">
+          <div className="flex flex-col md:items-start">
             <h4 className="font-bold text-2xl mb-2">Contact Us</h4>
             <div className="flex items-center mb-1">
               <FaPhone className="mr-2" />
@@ -42,11 +42,11 @@ const Footer = () => {
             </div>
           </div>
 
-          {/* Right Section: Small Map */}
+          {/* Right Section: Google Map */}
           <div className="text-center mt-4 md:mt-0 md:ml-8">
             <div className="overflow-hidden">
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3151.835434509352!2d144.9537353156813!3d-37.817209979751!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad642af0e6f1d4b%3A0x5045675218ce6e0!2sMelbourne%20CBD%2C%20Victoria!5e0!3m2!1sen!2sau!4v1637764301840!5m2!1sen!2sau"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3655.9656957871266!2d80.25985367438675!3d23.60556319432312!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3981718c8c84bfdb%3A0x8187dae5e4f7a828!2sM.chinnaswamy%20stadium%20lite!5e0!3m2!1sen!2sin!4v1729681415526!5m2!1sen!2sin"
                 width="300"
                 height="300"
                 style={{ border: 0 }}
